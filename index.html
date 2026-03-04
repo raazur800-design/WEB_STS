@@ -1,36 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Form Biodata Hosting</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Biodata - Hosting</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #800000, #3b5323);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+h2 {
+    text-align: center;
+    color: #800000;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #3b5323;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    border: 2px solid #800000;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #3b5323;
+}
+
+#hasil {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-left: 5px solid #800000;
+    border-radius: 8px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+}
+</style>
+
 </head>
 <body>
 
-<h2>Form Biodata</h2>
+<div class="container">
+    <h2>🌸 Form Biodata Siswa 🌸</h2>
 
-<form id="formBiodata">
-    Nama Lengkap:<br>
-    <input type="text" id="nama" required><br><br>
+    <form id="formBiodata">
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" required>
 
-    Kelas:<br>
-    <input type="text" id="kelas" required><br><br>
+        <label>Kelas</label>
+        <input type="text" id="kelas" required>
 
-    Alamat:<br>
-    <textarea id="alamat" required></textarea><br><br>
+        <label>Alamat</label>
+        <textarea id="alamat" rows="3" required></textarea>
 
-    Tanggal Lahir:<br>
-    <input type="date" id="tanggal_lahir" required><br><br>
+        <label>Tanggal Lahir</label>
+        <input type="date" id="tanggal_lahir" required>
 
-    <button type="submit">Simpan</button>
-</form>
+        <button type="submit">Simpan Data</button>
+    </form>
 
-<h3>Hasil:</h3>
-<p id="output"></p>
+    <div id="hasil"></div>
 
-<hr>
-<h3>Link Soal 1 & 2</h3>
-<p>
-    Screenshot dan penjelasan Soal 1 & 2 dilampirkan di laporan.
-</p>
+    <div class="footer">
+        Website Hosting GitHub Pages | XI TKJ 💻✨
+    </div>
+</div>
 
 <script>
 document.getElementById("formBiodata").addEventListener("submit", function(e){
@@ -45,11 +123,12 @@ document.getElementById("formBiodata").addEventListener("submit", function(e){
     let birthDate = new Date(tanggal);
     let umur = today.getFullYear() - birthDate.getFullYear();
 
-    document.getElementById("output").innerHTML =
-        "Nama: " + nama + "<br>" +
-        "Kelas: " + kelas + "<br>" +
-        "Alamat: " + alamat + "<br>" +
-        "Umur: " + umur + " tahun";
+    document.getElementById("hasil").innerHTML =
+        "<h3>✨ Hasil Data ✨</h3>" +
+        "<b>Nama:</b> " + nama + "<br>" +
+        "<b>Kelas:</b> " + kelas + "<br>" +
+        "<b>Alamat:</b> " + alamat + "<br>" +
+        "<b>Umur:</b> " + umur + " tahun";
 });
 </script>
 

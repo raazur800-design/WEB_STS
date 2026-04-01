@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Form Biodata</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2f4f2f, #556b2f);
+    margin: 0;
+}
+
+nav {
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+h2 {
+    text-align: center;
+    color: #2f4f2f;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2f4f2f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="tugas.html">Tugas</a>
+</nav>
+
+<div class="container">
+    <h2>Form Biodata</h2>
+
+    <form id="formBiodata">
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+        <input type="text" id="kelas" placeholder="Kelas" required>
+        <textarea id="alamat" placeholder="Alamat" required></textarea>
+        <input type="date" id="tanggal" required>
+
+        <button type="submit">Simpan</button>
+    </form>
+
+    <p id="hasil"></p>
+</div>
+
+<script>
+document.getElementById("formBiodata").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let kelas = document.getElementById("kelas").value;
+    let alamat = document.getElementById("alamat").value;
+    let tanggal = document.getElementById("tanggal").value;
+
+    let today = new Date();
+    let birth = new Date(tanggal);
+    let umur = today.getFullYear() - birth.getFullYear();
+
+    document.getElementById("hasil").innerHTML =
+        "Nama: " + nama + "<br>" +
+        "Kelas: " + kelas + "<br>" +
+        "Alamat: " + alamat + "<br>" +
+        "Umur: " + umur + " tahun";
+});
+</script>
+
+</body>
+</html>
